@@ -1,21 +1,23 @@
 <html>
 
 <head>
-        <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
-        <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.css" />
-        <link rel="stylesheet" href="/Kanbas/styles.css" />
-        <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+    <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="/Kanbas/styles.css" />
+    <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+    <link rel="stylesheet" href="/Kanbas/Account/Navigation/index.css" />
 </head>
+
 <body>
-    <table width="100%" height="100%">
-        <tbody>
-            <tr>
-                <td valign="top">
+    <div class="d-flex" style="height: 100%;">
                     <ul class="wd-kanbas-navigation">
-                        <li><a href="https://www.northeastern.edu">N</a></li>
+                        <li><a href="https://www.northeastern.edu"><img src="/images/neu-logo.png" alt="logo"
+                                    class="navbar-logo"></a>
+                        </li>
                         <li class="wd-active"><a href="/Kanbas/Account/Profile/screen.html">
                                 <i class="fa fa-user-circle"></i><br />Account</a></li>
-                        <li><a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i></i>Dashboard</a></li>
+                        <li><a href="/Kanbas/Dashboard/screen.html"><i class="fa fa-tachometer"></i></i>Dashboard</a>
+                        </li>
                         <li><a href="/Kanbas/Courses/Home/screen.html"><i class="fa fa-book"></i><br />Courses</a></li>
                         <li><a href="#"><i class="fa fa-calendar"></i>Calendar</a></li>
                         <li><a href="#"><i class="fa fa-inbox"></i><br />Inbox</a></li>
@@ -24,45 +26,24 @@
                         <li><a href="#"><i class="fa fa-sign-out"></i><br />Commons</a></li>
                         <li><a href="#"><i class="fa fa-question-circle"></i><br />Help</a></li>
                     </ul>
-                </td>
-                <td valign="top">
-                    <ul>
+                    <ul class="wd-navigation">
                         <li>
-                            <a href="#"> Notifications</a>
+                            <a href="#">Notifications</a>
                         </li>
-                        <li>
+                        <li class="wd-active">
                             <a href="/Kanbas/Account/Profile/screen.html">Profiles</a>
                         </li>
-                        <li><a href="#">Files</a></li>
                         <li><a href="#">Settings</a></li>
+                        <li><a href="#">ePortfolios</a></li>
                         <li>
-                            <a href="#">
-                                ePortfolios
-                            </a>
+                            <a href="#">Shared Content</a>
                         </li>
-                        <li>
-                            <a href="#">
-                                Shared Content
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                The Hub
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Qwickly Course Tools
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                Global Announcements
-                            </a>
-                        </li>
+                        <li><a href="#">The Hub</a></li>
+                        <li><a href="#">Qwickly Course
+                                <br /> Tools</a></li>
+                        <li><a href="#">Global <br /> Announcements</a></li>
                     </ul>
-                </td>
-                <td valign="top">
+                <div class="container ps-5 ms-5 pt-2">
                     <table>
                         <tbody>
                             <tr>
@@ -96,10 +77,8 @@
                             </tr>
                         </tbody>
                     </table>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+                </div>
+                </div>
 </body>
 
 </html>
