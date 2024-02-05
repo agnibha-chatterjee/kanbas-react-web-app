@@ -79,6 +79,14 @@
     margin-left: -3.5px;
 }
 
+.p-0 {
+    padding: 0px;
+}
+
+.m-0 {
+    margin: 0px;
+}
+
 .todo-1 {
     background-color: red;
     color: white;
