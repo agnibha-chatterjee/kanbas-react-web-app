@@ -1,0 +1,25 @@
+.mh-100 {
+    min-height: 100%;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-15 {
+    font-size: 15px;
+}
+
+.fs-24 {
+    font-size: 24px;
+}
+
+.position-ellipsis {
+    right: 18px;
+    top: 10px;
+    cursor: pointer;
+}
