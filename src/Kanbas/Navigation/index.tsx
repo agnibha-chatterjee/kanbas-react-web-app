@@ -10,7 +10,6 @@ import {
   FaSignOutAlt,
   FaQuestionCircle,
 } from "react-icons/fa";
-import { TbMapNorth } from "react-icons/tb";
 import "./index.css";
 
 function KanbasNavigation() {
@@ -32,7 +31,11 @@ function KanbasNavigation() {
     <ul className="wd-kanbas-navigation">
       <li>
         <Link to="https://www.northeastern.edu" target="_blank">
-          N
+          <img
+            width={70}
+            src="/images/neu-logo.png"
+            alt="Northeastern University"
+          />
         </Link>
       </li>
       {links.map((link, index) => (
