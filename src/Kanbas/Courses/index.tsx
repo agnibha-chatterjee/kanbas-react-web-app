@@ -1,20 +1,29 @@
-import { Navigate, Route, Routes, useMatch, useParams } from "react-router";
-import { courses } from "../Database";
-import CourseNavigation from "./Navigation";
-import { HiMiniBars3 } from "react-icons/hi2";
-import { PiEyeglasses } from "react-icons/pi";
-import "./index.css";
-import Modules from "../Modules";
+import { Navigate, Route, Routes, useParams } from 'react-router';
+import { HiMiniBars3 } from 'react-icons/hi2';
+import { PiEyeglasses } from 'react-icons/pi';
+import { Link } from 'react-router-dom';
+import CourseNavigation from './Navigation';
+import Home from './Home';
+import Modules from './Modules';
+import Assignments from './Assignments';
+import { courses } from '../Database';
+import './index.css';
+import AssignmentEditor from './Assignments/Editor';
+import Grades from './Grades';
 
 function Courses() {
   const { courseId } = useParams();
-  const course = courses.find((course) => course._id === courseId);
+  const course = courses.find(course => course._id === courseId);
+
   const href = window.location.href;
-  const splitHref = href.split("/");
+  const splitHref = href.split('/');
+
   const breadcrumbText =
-    splitHref[splitHref.length - 1] === "Home"
-      ? "Modules"
-      : splitHref[splitHref.length - 1];
+    splitHref.at(-1) === 'Home'
+      ? ['Modules']
+      : splitHref.at(-2) === 'Assignments'
+      ? [splitHref.at(-2), splitHref.at(-1)]
+      : [splitHref.at(-1)];
 
   return (
     <>
@@ -26,11 +35,15 @@ function Courses() {
             style={{ fontSize: 20 }}
           >
             <li className="breadcrumb-item">
-              <a href="#" className="link-danger">
+              <Link to="#" className="link-danger">
                 {course?.name}
-              </a>
+              </Link>
             </li>
-            <li className="breadcrumb-item">{breadcrumbText}</li>
+            {breadcrumbText.map(text => (
+              <li key={text} className="breadcrumb-item">
+                {text}
+              </li>
+            ))}
           </ol>
           <button className="btn btn-light ms-auto">
             <PiEyeglasses />
@@ -42,19 +55,19 @@ function Courses() {
       <div>
         <div
           className="position-fixed bottom-0 end-0 overflow-y-scroll"
-          style={{ left: "320px", top: "50px" }}
+          style={{ left: 320, top: 50 }}
         >
           <Routes>
             <Route path="/" element={<Navigate to="Home" />} />
-            <Route path="Home" element={<h1>Home</h1>} />
+            <Route path="Home" element={<Home />} />
             <Route path="Modules" element={<Modules />} />
             <Route path="Piazza" element={<h1>Piazza</h1>} />
-            <Route path="Assignments" element={<h1>Assignments</h1>} />
+            <Route path="Assignments" element={<Assignments />} />
             <Route
               path="Assignments/:assignmentId"
-              element={<h1>Assignment Editor</h1>}
+              element={<AssignmentEditor />}
             />
-            <Route path="Grades" element={<h1>Grades</h1>} />
+            <Route path="Grades" element={<Grades />} />
           </Routes>
         </div>
       </div>

@@ -1,0 +1,29 @@
+[
+  {
+    "_id": "A101",
+    "title": "Propulsion Assignment",
+    "course": "RS101",
+    "dueDate": "2024-09-18",
+    "totalPoints": 100,
+    "notAvailableBefore": null,
+    "published": true
+  },
+  {
+    "_id": "A102",
+    "title": "Propulsion Assignment 1",
+    "course": "RS101",
+    "dueDate": "2024-10-02",
+    "totalPoints": 100,
+    "notAvailableBefore": "Sep 29, 2020 at 12.00 pm",
+    "published": true
+  },
+  {
+    "_id": "A103",
+    "title": "Propulsion Assignment 2",
+    "course": "RS101",
+    "dueDate": "2024-10-16",
+    "totalPoints": 100,
+    "notAvailableBefore": null,
+    "published": false
+  }
+]

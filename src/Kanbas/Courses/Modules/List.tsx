@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { modules } from "../Database";
-import { FaEllipsisV, FaCheckCircle, FaPlusCircle } from "react-icons/fa";
+import { modules } from "../../Database";
+import { FaEllipsisV, FaCheckCircle } from "react-icons/fa";
+import { HiChevronDown, HiChevronRight } from "react-icons/hi";
 import { useParams } from "react-router";
 import { Link } from "react-router-dom";
 
@@ -11,7 +12,7 @@ function ModuleList() {
   const modulesList = modules.filter((module) => module.course === courseId);
   const [selectedModule, setSelectedModule] = useState(modulesList[0]);
   return (
-    <>
+    <div className="flex-fill">
       <div className="d-flex justify-content-end">
         <button className="btn btn-light m-1">Collapse All</button>
         <button className="btn btn-light m-1"> View Progress</button>
@@ -30,13 +31,18 @@ function ModuleList() {
           <li
             className="list-group-item cursor-pointer"
             onClick={() => setSelectedModule(module)}
+            key={module._id}
           >
             <div className="module-header py-3">
               <span className="me-2 ms-1 cursor-pointer">
                 <FaEllipsisV className="fs-20" />
               </span>
               <div className="d-inline-flex align-items-center justify-content-center">
-                <button className="btn dropdown-toggle me-2" />
+                {selectedModule._id === module._id ? (
+                  <HiChevronDown className="fs-18" />
+                ) : (
+                  <HiChevronRight className="fs-18" />
+                )}
                 <span className="fw-bold cursor-pointer">{module.name}</span>
               </div>
               <span className="float-end pe-2">
@@ -47,18 +53,21 @@ function ModuleList() {
                   className="fa fa-plus fs-20 me-3 cursor-pointer"
                   style={{ color: "gray" }}
                 />
-                <FaEllipsisV className="fs-20 ms-2 cursor-pointer" />
+                <FaEllipsisV className="fs-20 s-2 cursor-pointer" />
               </span>
             </div>
 
             {selectedModule._id === module._id && (
               <ul className="list-group">
                 {module.lessons?.map((lesson) => (
-                  <li className="list-group-items module-li">
+                  <li className="list-group-items module-li" key={lesson._id}>
                     <div className="py-2">
                       <span className="me-2 ms-1">
                         <FaEllipsisV className="fs-20" />
-                        <FaEllipsisV className="fs-20 ml-n3" />
+                        <FaEllipsisV
+                          className="fs-20"
+                          style={{ marginLeft: -13.5 }}
+                        />
                       </span>
                       <span className="module-content p-4">
                         <Link
@@ -80,7 +89,7 @@ function ModuleList() {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 
