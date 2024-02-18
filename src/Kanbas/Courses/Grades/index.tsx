@@ -17,15 +17,15 @@ function Grades() {
   return (
     <div className="w-100 px-3 me-4 mt-5">
       <div className="d-flex justify-content-end">
-        <button className="btn btn-light mx-2">
+        <button className="btn btn-light mx-2 d-flex justify-content-start align-items-center">
           <FaSignInAlt />
           <span className="px-2">Import</span>
         </button>
-        <button className="btn btn-light dropdown-toggle mx-2">
+        <button className="btn btn-light dropdown-toggle mx-2 d-flex justify-content-start align-items-center">
           <FaSignOutAlt />
           <span className="ps-2">Export</span>
         </button>
-        <button className="btn btn-light">
+        <button className="btn btn-light d-flex justify-content-start align-items-center">
           <FaCog />
         </button>
       </div>
@@ -72,8 +72,11 @@ function Grades() {
           </div>
         </div>
       </div>
-      <button className="btn btn-light ms-3 mt-2" type="button">
-        <FaFilter /> Apply Filters
+      <button
+        className="btn btn-light ms-3 mt-2 d-flex justify-content-start align-items-center"
+        type="button"
+      >
+        <FaFilter className="me-1" /> Apply Filters
       </button>
       <div className="table-responsive ms-3 mt-2">
         <table className="table table-striped table-bordered">
