@@ -17,7 +17,7 @@ function AssignmentEditor() {
   };
 
   return (
-    <div className="w-100 px-5">
+    <div className="w-100 px-5 mt-5">
       <div className="d-flex justify-content-end align-items-center me-3 mt-2 pb-2">
         <div>
           <FaCheckCircle className="text-success" />

@@ -15,7 +15,7 @@ function Grades() {
   const es = enrollments.filter(enrollment => enrollment.course === courseId);
 
   return (
-    <div className="w-100 px-3 me-4 mt-4">
+    <div className="w-100 px-3 me-4 mt-5">
       <div className="d-flex justify-content-end">
         <button className="btn btn-light mx-2">
           <FaSignInAlt />

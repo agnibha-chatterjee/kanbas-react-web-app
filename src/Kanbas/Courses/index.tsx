@@ -6,10 +6,10 @@ import CourseNavigation from './Navigation';
 import Home from './Home';
 import Modules from './Modules';
 import Assignments from './Assignments';
-import { courses } from '../Database';
-import './index.css';
 import AssignmentEditor from './Assignments/Editor';
 import Grades from './Grades';
+import { courses } from '../Database';
+import './index.css';
 
 function Courses() {
   const { courseId } = useParams();
@@ -28,8 +28,13 @@ function Courses() {
   return (
     <>
       <div className="d-none d-md-block mx-3 p-2">
-        <div className="d-flex align-items-center custom-breadcrumb">
-          <HiMiniBars3 color="#DC4C64" cursor="pointer" fontSize="1.5em" />
+        <div className="d-flex align-items-center custom-breadcrumb border-bottom border-2">
+          <HiMiniBars3
+            color="#DC4C64"
+            cursor="pointer"
+            fontSize="1.7em"
+            className="me-3"
+          />
           <ol
             className="breadcrumb align-self-center pt-3"
             style={{ fontSize: 20 }}
@@ -45,8 +50,8 @@ function Courses() {
               </li>
             ))}
           </ol>
-          <button className="btn btn-light ms-auto">
-            <PiEyeglasses />
+          <button className="btn btn-light ms-auto d-flex justify-content-center align-items-center">
+            <PiEyeglasses fontSize="1.2em" className="me-1" />
             Student View
           </button>
         </div>
