@@ -4,10 +4,12 @@ import './index.css';
 
 function Home() {
   return (
-    <div className="d-flex justify-content-between mt-5">
-      <ModuleList />
-      <Status />
-    </div>
+    <>
+      <div className="d-flex justify-content-between mt-5">
+        <ModuleList />
+        <Status />
+      </div>
+    </>
   );
 }
 

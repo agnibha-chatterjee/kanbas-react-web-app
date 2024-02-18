@@ -106,3 +106,19 @@
 .custom-breadcrumb {
     --bs-breadcrumb-divider: ">";
 }
+
+.window-container {
+    position: fixed;
+    overflow-y: scroll;
+    top: 50px;
+    left: 320px;
+    bottom: 0px;
+    right: 0px;
+    
+}
+
+@media (max-width: 768px) {
+    .window-container {
+        left: 0px;
+    }
+}

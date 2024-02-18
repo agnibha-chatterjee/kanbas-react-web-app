@@ -29,7 +29,7 @@ function CourseNavigation() {
   const course = courses.find(course => course._id === courseId);
 
   return (
-    <>
+    <div className="d-none d-md-block me-4">
       <div className="my-3" style={{ fontSize: 11, marginLeft: 37.5 }}>
         <em>{course?.cardSubText.slice(0, 27)}...</em>
       </div>
@@ -40,7 +40,7 @@ function CourseNavigation() {
           </li>
         ))}
       </ul>
-    </>
+    </div>
   );
 }
 

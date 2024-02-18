@@ -1,29 +1,146 @@
 [
   {
-    "_id": "A101",
-    "title": "Propulsion Assignment",
+    "_id": "A201",
+    "title": "HTML and CSS Basics",
     "course": "RS101",
-    "dueDate": "2024-09-18",
+    "dueDate": "2023-02-10",
     "totalPoints": 100,
     "notAvailableBefore": null,
     "published": true
   },
   {
-    "_id": "A102",
-    "title": "Propulsion Assignment 1",
+    "_id": "A202",
+    "title": "Responsive Web Design",
     "course": "RS101",
-    "dueDate": "2024-10-02",
+    "dueDate": "2023-03-05",
     "totalPoints": 100,
-    "notAvailableBefore": "Sep 29, 2020 at 12.00 pm",
+    "notAvailableBefore": "2023-02-28 at 12:00 pm",
     "published": true
   },
   {
-    "_id": "A103",
-    "title": "Propulsion Assignment 2",
+    "_id": "A203",
+    "title": "JavaScript Fundamentals",
     "course": "RS101",
-    "dueDate": "2024-10-16",
+    "dueDate": "2023-04-01",
     "totalPoints": 100,
     "notAvailableBefore": null,
     "published": false
+  },
+  {
+    "_id": "A204",
+    "title": "Final Project: Complete Website",
+    "course": "RS101",
+    "dueDate": "2023-05-10",
+    "totalPoints": 200,
+    "notAvailableBefore": "2023-04-20 at 12:00 pm",
+    "published": true
+  },
+  {
+    "_id": "A301",
+    "title": "Sorting Algorithm Analysis",
+    "course": "RS102",
+    "dueDate": "2023-09-20",
+    "totalPoints": 100,
+    "notAvailableBefore": null,
+    "published": true
+  },
+  {
+    "_id": "A302",
+    "title": "Graph Algorithms Implementation",
+    "course": "RS102",
+    "dueDate": "2023-10-15",
+    "totalPoints": 100,
+    "notAvailableBefore": "2023-10-01 at 12:00 pm",
+    "published": true
+  },
+  {
+    "_id": "A303",
+    "title": "Dynamic Programming Problems",
+    "course": "RS102",
+    "dueDate": "2023-11-10",
+    "totalPoints": 100,
+    "notAvailableBefore": null,
+    "published": false
+  },
+  {
+    "_id": "A304",
+    "title": "Final Exam: Algorithm Design",
+    "course": "RS102",
+    "dueDate": "2023-12-10",
+    "totalPoints": 200,
+    "notAvailableBefore": "2023-11-30 at 12:00 pm",
+    "published": true
+  },
+  {
+    "_id": "A401",
+    "title": "SQL Query Practice",
+    "course": "RS103",
+    "dueDate": "2023-09-25",
+    "totalPoints": 100,
+    "notAvailableBefore": null,
+    "published": true
+  },
+  {
+    "_id": "A402",
+    "title": "Database Design Project",
+    "course": "RS103",
+    "dueDate": "2023-10-20",
+    "totalPoints": 100,
+    "notAvailableBefore": "2023-10-05 at 12:00 pm",
+    "published": true
+  },
+  {
+    "_id": "A403",
+    "title": "NoSQL Database Implementation",
+    "course": "RS103",
+    "dueDate": "2023-11-15",
+    "totalPoints": 100,
+    "notAvailableBefore": null,
+    "published": false
+  },
+  {
+    "_id": "A404",
+    "title": "Final Exam: Database Systems",
+    "course": "RS103",
+    "dueDate": "2023-12-12",
+    "totalPoints": 200,
+    "notAvailableBefore": "2023-12-01 at 12:00 pm",
+    "published": true
+  },
+  {
+    "_id": "A501",
+    "title": "Functional Programming Exercises",
+    "course": "RS104",
+    "dueDate": "2023-09-30",
+    "totalPoints": 100,
+    "notAvailableBefore": null,
+    "published": true
+  },
+  {
+    "_id": "A502",
+    "title": "Object-Oriented Design Patterns",
+    "course": "RS104",
+    "dueDate": "2023-10-25",
+    "totalPoints": 100,
+    "notAvailableBefore": "2023-10-10 at 12:00 pm",
+    "published": true
+  },
+  {
+    "_id": "A503",
+    "title": "Logic Programming with Prolog",
+    "course": "RS104",
+    "dueDate": "2023-11-20",
+    "totalPoints": 100,
+    "notAvailableBefore": null,
+    "published": false
+  },
+  {
+    "_id": "A504",
+    "title": "Final Project: Concurrent Programming",
+    "course": "RS104",
+    "dueDate": "2023-12-14",
+    "totalPoints": 200,
+    "notAvailableBefore": "2023-12-03 at 12:00 pm",
+    "published": true
   }
 ]

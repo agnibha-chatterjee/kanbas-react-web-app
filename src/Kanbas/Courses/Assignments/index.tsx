@@ -12,7 +12,7 @@ function Assignments() {
   );
 
   return (
-    <ul className="list-group wd-modules me-4 mt-5">
+    <ul className="list-group wd-modules me-5 mt-5">
       <li className="list-group-items">
         <div className="module-header py-3">
           <span className="me-2 ms-1">
@@ -75,7 +75,7 @@ function Assignments() {
                     {assignment.published ? (
                       <FaCheckCircle
                         fontSize="1em"
-                        className="text-success me-3"
+                        className="text-success me-3 opacity-50"
                       />
                     ) : (
                       <FaCheckCircle

@@ -19,8 +19,8 @@ function AssignmentEditor() {
   return (
     <div className="w-100 px-5 mt-5">
       <div className="d-flex justify-content-end align-items-center me-3 mt-2 pb-2">
-        <div>
-          <FaCheckCircle className="text-success" />
+        <div className="d-flex justify-content-start align-items-center">
+          <FaCheckCircle className="text-success me-1" />
           <span className="fw-bold text-success">Published</span>
         </div>
         <button className="btn btn-light ms-3">
@@ -29,7 +29,6 @@ function AssignmentEditor() {
       </div>
       <hr />
       <div className="mb-5">
-        {/* Form part 1 */}
         <div className="mb-3">
           <label htmlFor="assignment-name" className="form-label">
             Assignment Name
@@ -47,9 +46,7 @@ function AssignmentEditor() {
             id="exampleFormControlTextarea1"
             rows={4}
             placeholder="Assignment Description"
-            defaultValue={
-              'This assignment describes how to install the development environment for creating and working with Web application we will be developing this semester. We will add new content every week, pushing the code to a GitHub source repository, and then deploying the content to a remote server hosted on Netlify.\n                            '
-            }
+            defaultValue="Assignment description goes here"
           />
         </div>
         {/* Actual Form */}
@@ -209,12 +206,16 @@ function AssignmentEditor() {
         <div>
           <Link
             to={`/Kanbas/Courses/${courseId}/Assignments`}
-            className="text-decoration-none btn btn-light"
+            className="text-decoration-none btn btn-light me-1 rounded-0"
           >
             Cancel
           </Link>
 
-          <button type="button" className="btn btn-danger" onClick={handleSave}>
+          <button
+            type="button"
+            className="btn btn-danger rounded-0"
+            onClick={handleSave}
+          >
             Save
           </button>
         </div>

@@ -3,26 +3,35 @@ import { HiMiniBars3 } from 'react-icons/hi2';
 import { PiEyeglasses } from 'react-icons/pi';
 import { Link } from 'react-router-dom';
 import CourseNavigation from './Navigation';
+import CollapsedNav from './Navigation/CollapsedNav';
 import Home from './Home';
 import Modules from './Modules';
 import Assignments from './Assignments';
 import AssignmentEditor from './Assignments/Editor';
 import Grades from './Grades';
-import { courses } from '../Database';
+import { assignments, courses } from '../Database';
 import './index.css';
 
 function Courses() {
   const { courseId } = useParams();
   const course = courses.find(course => course._id === courseId);
-
+  let assignmentTitle = '';
   const href = window.location.href;
   const splitHref = href.split('/');
+
+  if (splitHref.at(-2) === 'Assignments') {
+    const assignmentId = splitHref.at(-1);
+    const assignment = assignments.find(
+      assignment => assignment._id === assignmentId
+    );
+    assignmentTitle = assignment?.title ?? '';
+  }
 
   const breadcrumbText =
     splitHref.at(-1) === 'Home'
       ? ['Modules']
       : splitHref.at(-2) === 'Assignments'
-      ? [splitHref.at(-2), splitHref.at(-1)]
+      ? [splitHref.at(-2), assignmentTitle]
       : [splitHref.at(-1)];
 
   return (
@@ -56,12 +65,10 @@ function Courses() {
           </button>
         </div>
       </div>
+      <CollapsedNav />
       <CourseNavigation />
       <div>
-        <div
-          className="position-fixed bottom-0 end-0 overflow-y-scroll"
-          style={{ left: 320, top: 50 }}
-        >
+        <div className="window-container">
           <Routes>
             <Route path="/" element={<Navigate to="Home" />} />
             <Route path="Home" element={<Home />} />
