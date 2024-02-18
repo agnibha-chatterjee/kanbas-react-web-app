@@ -8,6 +8,7 @@ import {
   FaFilter
 } from 'react-icons/fa';
 import { assignments, enrollments, grades, users } from '../../Database';
+import './index.css';
 
 function Grades() {
   const { courseId } = useParams();
@@ -15,7 +16,7 @@ function Grades() {
   const es = enrollments.filter(enrollment => enrollment.course === courseId);
 
   return (
-    <div className="w-100 px-3 me-4 mt-5">
+    <div className="w-100 mt-5 pe-5">
       <div className="d-flex justify-content-end">
         <button className="btn btn-light mx-2 d-flex justify-content-start align-items-center">
           <FaSignInAlt />
@@ -82,11 +83,11 @@ function Grades() {
         <table className="table table-striped table-bordered">
           <thead>
             <tr>
-              <th>Student Name</th>
+              <th className="text-start">Student Name</th>
               {as.map(assignment => (
-                <th className="fw-normal text-center">
+                <th className="fw-normal text-center" style={{ fontSize: 14 }}>
                   {assignment.title} <br />
-                  <span className="fs-13">Out of 100</span>
+                  <span className="fs-12">Out of 100</span>
                 </th>
               ))}
             </tr>

@@ -6,7 +6,9 @@ function Home() {
   return (
     <>
       <div className="d-flex justify-content-between mt-5">
-        <ModuleList />
+        <div className="w-100 me-4">
+          <ModuleList />
+        </div>
         <Status />
       </div>
     </>
