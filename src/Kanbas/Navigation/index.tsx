@@ -1,7 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import {
   FaTachometerAlt,
-  FaRegUserCircle,
   FaBook,
   FaRegCalendarAlt,
   FaInbox,
@@ -10,19 +9,29 @@ import {
   FaSignOutAlt,
   FaQuestionCircle
 } from 'react-icons/fa';
+import { MdAccountCircle } from 'react-icons/md';
 import './index.css';
 
 function KanbasNavigation() {
   const links = [
-    { label: 'Account', icon: <FaRegUserCircle className="fs-2" /> },
-    { label: 'Dashboard', icon: <FaTachometerAlt className="fs-2" /> },
-    { label: 'Courses', icon: <FaBook className="fs-2" /> },
-    { label: 'Calendar', icon: <FaRegCalendarAlt className="fs-2" /> },
-    { label: 'Inbox', icon: <FaInbox className="fs-2" /> },
-    { label: 'History', icon: <FaHistory className="fs-2" /> },
-    { label: 'Studio', icon: <FaYoutube className="fs-2" /> },
-    { label: 'Commons', icon: <FaSignOutAlt className="fs-2" /> },
-    { label: 'Help', icon: <FaQuestionCircle className="fs-2" /> }
+    {
+      label: 'Account',
+      icon: <MdAccountCircle className="fs-2" />
+    },
+    {
+      label: 'Dashboard',
+      icon: <FaTachometerAlt className="fs-2 text-danger" />
+    },
+    { label: 'Courses', icon: <FaBook className="fs-2 text-danger" /> },
+    {
+      label: 'Calendar',
+      icon: <FaRegCalendarAlt className="fs-2 text-danger" />
+    },
+    { label: 'Inbox', icon: <FaInbox className="fs-2 text-danger" /> },
+    { label: 'History', icon: <FaHistory className="fs-2 text-danger" /> },
+    { label: 'Studio', icon: <FaYoutube className="fs-2 text-danger" /> },
+    { label: 'Commons', icon: <FaSignOutAlt className="fs-2 text-danger" /> },
+    { label: 'Help', icon: <FaQuestionCircle className="fs-2 text-danger" /> }
   ];
 
   const { pathname } = useLocation();

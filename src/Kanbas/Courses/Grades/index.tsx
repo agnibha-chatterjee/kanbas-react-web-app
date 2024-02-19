@@ -105,14 +105,16 @@ function Grades() {
                       {user?.firstName} {user?.lastName}
                     </Link>
                   </td>
-                  {assignments.map(assignment => {
+                  {as.map(assignment => {
                     const grade = grades.find(
                       grade =>
                         grade.student === enrollment.user &&
                         grade.assignment === assignment._id
                     );
                     return (
-                      <td className="text-center">{grade?.grade || ''}</td>
+                      grade?.grade && (
+                        <td className="text-center">{grade?.grade}</td>
+                      )
                     );
                   })}
                 </tr>
