@@ -44,7 +44,7 @@ function CollapsedNav() {
 
   return (
     <div className="d-block d-sm-block d-md-none">
-      <nav className="navbar navbar-expand-lg p-0">
+      <nav className="navbar navbar-expand-lg p-0 z-1">
         <div className="container-fluid p-0">
           <div
             className="d-flex justify-content-between align-items-center w-100 bg-dark"

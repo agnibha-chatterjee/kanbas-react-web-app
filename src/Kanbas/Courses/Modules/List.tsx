@@ -32,11 +32,11 @@ function ModuleList() {
       <ul className="list-group wd-modules mt-5">
         {modulesList.map(module => (
           <li
-            className="list-group-item cursor-pointer bg-light"
+            className="list-group-item cursor-pointer"
             onClick={() => setSelectedModule(module)}
             key={module._id}
           >
-            <div className="module-header py-3">
+            <div className="module-header py-3 bg-light">
               <span className="me-2 ms-1 cursor-pointer">
                 <FaEllipsisV className="mb-1" fontSize="1.1em" />
               </span>
@@ -64,10 +64,7 @@ function ModuleList() {
             {selectedModule._id === module._id && (
               <ul className="list-group">
                 {module.lessons?.map(lesson => (
-                  <li
-                    className="list-group-items module-li bg-white"
-                    key={lesson._id}
-                  >
+                  <li className="list-group-items module-li" key={lesson._id}>
                     <div className="py-2">
                       <span className="me-2 ms-1">
                         <FaEllipsisV className="mb-1" />

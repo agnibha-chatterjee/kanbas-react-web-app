@@ -16,7 +16,7 @@ function Courses() {
   const { courseId } = useParams();
   const course = courses.find(course => course._id === courseId);
   let assignmentTitle = '';
-  const href = window.location.href;
+  const href = decodeURIComponent(window.location.href);
   const splitHref = href.split('/');
 
   if (splitHref.at(-2) === 'Assignments') {
@@ -73,13 +73,22 @@ function Courses() {
             <Route path="/" element={<Navigate to="Home" />} />
             <Route path="Home" element={<Home />} />
             <Route path="Modules" element={<Modules />} />
-            <Route path="Piazza" element={<h1>Piazza</h1>} />
             <Route path="Assignments" element={<Assignments />} />
             <Route
               path="Assignments/:assignmentId"
               element={<AssignmentEditor />}
             />
             <Route path="Grades" element={<Grades />} />
+            <Route
+              path="*"
+              element={breadcrumbText.map(text => {
+                return (
+                  <h1 className="mt-5" key={text}>
+                    {text}
+                  </h1>
+                );
+              })}
+            />
           </Routes>
         </div>
       </div>

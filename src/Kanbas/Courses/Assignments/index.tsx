@@ -42,7 +42,7 @@ function Assignments() {
                   <FaEllipsisV className="mb-1" />
                   <FaEllipsisV className="mb-1" style={{ marginLeft: -10.5 }} />
                   <PiNotePencil className="text-success fs-24 mx-4" />
-                  <span className="w-300 me-auto">
+                  <span className="w-350 me-auto">
                     <Link
                       to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
                       className="link-dark link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
@@ -65,8 +65,8 @@ function Assignments() {
                           <span className="fw-normal fs-16"> | </span>
                         </span>
                       )}
-                      <span className="fw-bold"> Due</span> Sep 18, 2022 at
-                      11.59pm
+                      <span className="fw-bold"> Due</span>
+                      {' ' + assignment.dueDate}
                       <span className="fw-normal fs-16"> | </span>
                       {assignment.totalPoints} pts
                     </span>
