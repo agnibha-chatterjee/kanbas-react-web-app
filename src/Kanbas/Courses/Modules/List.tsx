@@ -13,13 +13,14 @@ function ModuleList() {
   const { courseId } = useParams();
   const modulesList = modules.filter(module => module.course === courseId);
   const [selectedModule, setSelectedModule] = useState(modulesList[0]);
+
   return (
     <div className="flex-fill">
       <div className="d-flex justify-content-end border-2 border-bottom pb-3">
         <button className="btn btn-light m-1">Collapse All</button>
         <button className="btn btn-light m-1"> View Progress</button>
         <button className="btn btn-light dropdown-toggle m-1 d-flex justify-content-center align-items-center">
-          <CiCircleCheck className="text-success me-2" />
+          <CiCircleCheck className="text-success me-2" fontSize="1.2em" />
           Publish All
         </button>
         <button className="btn btn-danger m-1"> + Module</button>

@@ -85,7 +85,11 @@ function Grades() {
             <tr>
               <th className="text-start">Student Name</th>
               {as.map(assignment => (
-                <th className="fw-normal text-center" style={{ fontSize: 14 }}>
+                <th
+                  key={assignment._id}
+                  className="fw-normal text-center"
+                  style={{ fontSize: 14 }}
+                >
                   {assignment.title} <br />
                   <span className="fs-12">Out of 100</span>
                 </th>
@@ -96,7 +100,7 @@ function Grades() {
             {es.map(enrollment => {
               const user = users.find(user => user._id === enrollment.user);
               return (
-                <tr>
+                <tr key={enrollment._id}>
                   <td className="text-danger">
                     <Link
                       className="link-danger link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
@@ -113,7 +117,9 @@ function Grades() {
                     );
                     return (
                       grade?.grade && (
-                        <td className="text-center">{grade?.grade}</td>
+                        <td key={grade._id} className="text-center">
+                          {grade?.grade}
+                        </td>
                       )
                     );
                   })}

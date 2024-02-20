@@ -33,7 +33,7 @@
     "dueDate": "2023-05-10",
     "totalPoints": 200,
     "notAvailableBefore": "2023-04-20 at 12:00 pm",
-    "published": true
+    "published": false
   },
   {
     "_id": "A301",
@@ -69,7 +69,7 @@
     "dueDate": "2023-12-10",
     "totalPoints": 200,
     "notAvailableBefore": "2023-11-30 at 12:00 pm",
-    "published": true
+    "published": false
   },
   {
     "_id": "A401",
@@ -105,7 +105,7 @@
     "dueDate": "2023-12-12",
     "totalPoints": 200,
     "notAvailableBefore": "2023-12-01 at 12:00 pm",
-    "published": true
+    "published": false
   },
   {
     "_id": "A501",
@@ -141,6 +141,6 @@
     "dueDate": "2023-12-14",
     "totalPoints": 200,
     "notAvailableBefore": "2023-12-03 at 12:00 pm",
-    "published": true
+    "published": false
   }
 ]
