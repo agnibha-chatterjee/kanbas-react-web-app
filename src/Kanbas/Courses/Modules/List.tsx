@@ -68,16 +68,26 @@ function ModuleList() {
           .map(module => (
             <li
               className="list-group-item cursor-pointer"
-              onClick={() => setSelectedModule(module)}
+              // onClick={() => setSelectedModule(module)}
               key={module._id}
             >
               <button onClick={() => dispatch(setModule(module))}>Edit</button>
-              <button onClick={() => deleteModule(module._id)}>Delete</button>
+              <button
+                className="btn btn-danger btn-sm"
+                onClick={() => {
+                  dispatch(deleteModule(module._id));
+                }}
+              >
+                Delete
+              </button>
               <div className="module-header py-3 bg-light">
                 <span className="me-2 ms-1 cursor-pointer">
                   <FaEllipsisV className="mb-1" fontSize="1.1em" />
                 </span>
-                <div className="d-inline-flex align-items-center justify-content-center">
+                <div
+                  className="d-inline-flex align-items-center justify-content-center cursor-pointer"
+                  onClick={() => setSelectedModule(module)}
+                >
                   {selectedModule._id === module._id ? (
                     <HiChevronDown className="fs-18" />
                   ) : (
