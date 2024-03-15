@@ -1,52 +1,23 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import db from '../Database';
 import { PiNotePencil } from 'react-icons/pi';
 import './index.css';
 import { Course } from '../../types';
 
-function Dashboard() {
-  const [courses, setCourses] = useState<Course[]>(db.courses);
-
-  const [course, setCourse] = useState<Course>({
-    _id: '0',
-    name: 'New Course',
-    number: 'New Number',
-    startDate: '2023-09-10',
-    endDate: '2023-12-15',
-    image: 'reactjs.webp'
-  });
-
-  const addNewCourse = () => {
-    const totalNoOfCourses = courses.length;
-    const commonText = `2042${(totalNoOfCourses + 1) * 10}`;
-    const cardText = `${course.number}_12631_${commonText}`;
-    const newCourse: Course = {
-      ...course,
-      _id: new Date().getTime().toString(),
-      cardText,
-      cardSubText: `${commonText}_1 Fall Semester Full Term`
-    };
-
-    setCourses(prevCourses => [...prevCourses, newCourse]);
-  };
-
-  const deleteCourse = (courseId: string) => {
-    setCourses(courses.filter(course => course._id !== courseId));
-  };
-
-  const updateCourse = () => {
-    setCourses(
-      courses.map(c => {
-        if (c._id === course._id) {
-          return course;
-        } else {
-          return c;
-        }
-      })
-    );
-  };
-
+function Dashboard({
+  courses,
+  course,
+  setCourse,
+  addNewCourse,
+  deleteCourse,
+  updateCourse
+}: {
+  courses: Course[];
+  course: Course;
+  setCourse: (course: Course) => void;
+  addNewCourse: () => void;
+  deleteCourse: (courseId: string) => void;
+  updateCourse: () => void;
+}) {
   return (
     <div className="p-4">
       <h1>Dashboard</h1> <hr />

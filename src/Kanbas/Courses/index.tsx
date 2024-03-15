@@ -9,10 +9,11 @@ import Modules from './Modules';
 import Assignments from './Assignments';
 import AssignmentEditor from './Assignments/Editor';
 import Grades from './Grades';
-import { assignments, courses } from '../Database';
+import { assignments } from '../Database';
 import './index.css';
+import { Course } from '../../types';
 
-function Courses() {
+function Courses({ courses }: { courses: Course[] }) {
   const { courseId } = useParams();
   const course = courses.find(course => course._id === courseId);
   let assignmentTitle = '';

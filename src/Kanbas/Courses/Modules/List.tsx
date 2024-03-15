@@ -8,11 +8,43 @@ import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
 
 import './index.css';
+import { Module } from '../../../types';
 
 function ModuleList() {
   const { courseId } = useParams();
-  const modulesList = modules.filter(module => module.course === courseId);
-  const [selectedModule, setSelectedModule] = useState(modulesList[0]);
+
+  const [moduleList, setModuleList] = useState<Module[]>(modules);
+  const [selectedModule, setSelectedModule] = useState<Module>(moduleList[0]);
+
+  const [module, setModule] = useState<Module>({
+    _id: '',
+    name: 'New Module',
+    description: 'New Description',
+    course: courseId!,
+    lessons: []
+  });
+
+  const addModule = () => {
+    const newModule = { ...module, _id: new Date().getTime().toString() };
+    const newModuleList = [...moduleList, newModule];
+    setModuleList(newModuleList);
+  };
+
+  const deleteModule = (moduleId: string) => {
+    const newModuleList = moduleList.filter(module => module._id !== moduleId);
+    setModuleList(newModuleList);
+  };
+
+  const updateModule = () => {
+    const newModuleList = moduleList.map(m => {
+      if (m._id === module._id) {
+        return module;
+      } else {
+        return m;
+      }
+    });
+    setModuleList(newModuleList);
+  };
 
   return (
     <div className="flex-fill">
@@ -30,71 +62,103 @@ function ModuleList() {
       </div>
 
       <ul className="list-group wd-modules mt-5">
-        {modulesList.map(module => (
-          <li
-            className="list-group-item cursor-pointer"
-            onClick={() => setSelectedModule(module)}
-            key={module._id}
-          >
-            <div className="module-header py-3 bg-light">
-              <span className="me-2 ms-1 cursor-pointer">
-                <FaEllipsisV className="mb-1" fontSize="1.1em" />
-              </span>
-              <div className="d-inline-flex align-items-center justify-content-center">
-                {selectedModule._id === module._id ? (
-                  <HiChevronDown className="fs-18" />
-                ) : (
-                  <HiChevronRight className="fs-18" />
-                )}
-                <span className="fw-bold cursor-pointer">{module.name}</span>
-              </div>
-              <span className="float-end pe-2">
-                <button className="dropdown-toggle me-3 bg-transparent d-inline-flex align-items-center justify-content-center">
-                  <FaCheckCircle fontSize="1em" className="text-success" />
-                </button>
-                <GoPlus
-                  color="gray"
-                  className="cursor-pointer me-4 mb-1"
-                  fontSize="1.3em"
-                />
-                <FaEllipsisV className="mb-1 cursor-pointer" fontSize="1.1em" />
-              </span>
-            </div>
+        <li className="list-group-item">
+          <button onClick={addModule} className="btn btn-sm btn-success">
+            Add
+          </button>
+          <button onClick={updateModule}>Update</button>
 
-            {selectedModule._id === module._id && (
-              <ul className="list-group">
-                {module.lessons?.map(lesson => (
-                  <li className="list-group-items module-li" key={lesson._id}>
-                    <div className="py-2">
-                      <span className="me-2 ms-1">
-                        <FaEllipsisV className="mb-1" />
-                        <FaEllipsisV
-                          className="mb-1"
-                          style={{ marginLeft: -10.5 }}
-                        />
-                      </span>
-                      <span className="module-content p-4">
-                        <Link
-                          to="#"
-                          className="link-dark link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
-                        >
-                          {lesson.name}
-                        </Link>
-                        <span className="float-end pe-2">
-                          <FaCheckCircle
-                            fontSize="1em"
-                            className="text-success me-3 cursor-pointer mb-1"
+          <input
+            value={module.name}
+            onChange={e =>
+              setModule({
+                ...module,
+                name: e.target.value
+              })
+            }
+          />
+          <textarea
+            value={module.description}
+            onChange={e =>
+              setModule({
+                ...module,
+                description: e.target.value
+              })
+            }
+          />
+        </li>
+
+        {moduleList
+          .filter(module => module.course === courseId)
+          .map(module => (
+            <li
+              className="list-group-item cursor-pointer"
+              onClick={() => setSelectedModule(module)}
+              key={module._id}
+            >
+              <button onClick={() => deleteModule(module._id)}>Delete</button>
+              <div className="module-header py-3 bg-light">
+                <span className="me-2 ms-1 cursor-pointer">
+                  <FaEllipsisV className="mb-1" fontSize="1.1em" />
+                </span>
+                <div className="d-inline-flex align-items-center justify-content-center">
+                  {selectedModule._id === module._id ? (
+                    <HiChevronDown className="fs-18" />
+                  ) : (
+                    <HiChevronRight className="fs-18" />
+                  )}
+                  <span className="fw-bold cursor-pointer">{module.name}</span>
+                </div>
+                <span className="float-end pe-2">
+                  <button className="dropdown-toggle me-3 bg-transparent d-inline-flex align-items-center justify-content-center">
+                    <FaCheckCircle fontSize="1em" className="text-success" />
+                  </button>
+                  <GoPlus
+                    color="gray"
+                    className="cursor-pointer me-4 mb-1"
+                    fontSize="1.3em"
+                  />
+                  <FaEllipsisV
+                    className="mb-1 cursor-pointer"
+                    fontSize="1.1em"
+                  />
+                </span>
+              </div>
+
+              {selectedModule._id === module._id && (
+                <ul className="list-group">
+                  {module.lessons?.map(lesson => (
+                    <li className="list-group-items module-li" key={lesson._id}>
+                      <div className="py-2">
+                        <span className="me-2 ms-1">
+                          <FaEllipsisV className="mb-1" />
+                          <FaEllipsisV
+                            className="mb-1"
+                            style={{ marginLeft: -10.5 }}
                           />
-                          <FaEllipsisV className="ms-2 cursor-pointer mb-1" />
                         </span>
-                      </span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </li>
-        ))}
+                        <span className="module-content p-4">
+                          <Link
+                            to="#"
+                            className="link-dark link-underline link-underline-opacity-0 link-underline-opacity-100-hover"
+                          >
+                            {lesson.name}
+                          </Link>
+                          <span className="float-end pe-2">
+                            <FaCheckCircle
+                              fontSize="1em"
+                              className="text-success me-3 cursor-pointer mb-1"
+                            />
+                            <FaEllipsisV className="ms-2 cursor-pointer mb-1" />
+                          </span>
+                        </span>
+                      </div>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+          ))}
       </ul>
     </div>
   );
