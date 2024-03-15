@@ -1,50 +1,28 @@
 import { useState } from 'react';
-import { modules } from '../../Database';
 import { FaEllipsisV, FaCheckCircle } from 'react-icons/fa';
 import { CiCircleCheck } from 'react-icons/ci';
 import { HiChevronDown, HiChevronRight } from 'react-icons/hi';
 import { GoPlus } from 'react-icons/go';
 import { useParams } from 'react-router';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { addModule, deleteModule, updateModule, setModule } from './reducer';
+import { KanbasState } from '../../store';
 
 import './index.css';
-import { Module } from '../../../types';
 
 function ModuleList() {
   const { courseId } = useParams();
+  const dispatch = useDispatch();
 
-  const [moduleList, setModuleList] = useState<Module[]>(modules);
-  const [selectedModule, setSelectedModule] = useState<Module>(moduleList[0]);
+  const moduleList = useSelector(
+    (state: KanbasState) => state.modulesReducer.modules
+  );
+  const module = useSelector(
+    (state: KanbasState) => state.modulesReducer.module
+  );
 
-  const [module, setModule] = useState<Module>({
-    _id: '',
-    name: 'New Module',
-    description: 'New Description',
-    course: courseId!,
-    lessons: []
-  });
-
-  const addModule = () => {
-    const newModule = { ...module, _id: new Date().getTime().toString() };
-    const newModuleList = [...moduleList, newModule];
-    setModuleList(newModuleList);
-  };
-
-  const deleteModule = (moduleId: string) => {
-    const newModuleList = moduleList.filter(module => module._id !== moduleId);
-    setModuleList(newModuleList);
-  };
-
-  const updateModule = () => {
-    const newModuleList = moduleList.map(m => {
-      if (m._id === module._id) {
-        return module;
-      } else {
-        return m;
-      }
-    });
-    setModuleList(newModuleList);
-  };
+  const [selectedModule, setSelectedModule] = useState(module);
 
   return (
     <div className="flex-fill">
@@ -63,27 +41,24 @@ function ModuleList() {
 
       <ul className="list-group wd-modules mt-5">
         <li className="list-group-item">
-          <button onClick={addModule} className="btn btn-sm btn-success">
+          <button
+            onClick={() => dispatch(addModule({ ...module, course: courseId }))}
+            className="btn btn-sm btn-success"
+          >
             Add
           </button>
-          <button onClick={updateModule}>Update</button>
+          <button onClick={() => dispatch(updateModule(module))}>Update</button>
 
           <input
             value={module.name}
             onChange={e =>
-              setModule({
-                ...module,
-                name: e.target.value
-              })
+              dispatch(setModule({ ...module, name: e.target.value }))
             }
           />
           <textarea
             value={module.description}
             onChange={e =>
-              setModule({
-                ...module,
-                description: e.target.value
-              })
+              dispatch(setModule({ ...module, description: e.target.value }))
             }
           />
         </li>
@@ -96,6 +71,7 @@ function ModuleList() {
               onClick={() => setSelectedModule(module)}
               key={module._id}
             >
+              <button onClick={() => dispatch(setModule(module))}>Edit</button>
               <button onClick={() => deleteModule(module._id)}>Delete</button>
               <div className="module-header py-3 bg-light">
                 <span className="me-2 ms-1 cursor-pointer">

@@ -13,8 +13,8 @@ export interface Module {
   _id: string;
   name: string;
   description: string;
-  course: string;
-  lessons: Lesson[];
+  course?: string;
+  lessons?: Lesson[];
 }
 
 export interface Lesson {
