@@ -5,4 +5,7 @@ import users from './users.json';
 import enrollments from './enrollments.json';
 import grades from './grades.json';
 
+const db = { courses, modules, assignments, users, enrollments, grades };
+
+export default db;
 export { courses, modules, assignments, users, enrollments, grades };
