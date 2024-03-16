@@ -23,3 +23,13 @@ export interface Lesson {
   description: string;
   module: string;
 }
+
+export interface Assignment {
+  _id: string;
+  title: string;
+  course?: string;
+  dueDate: string;
+  totalPoints: number;
+  availableFromDate: string | null;
+  published: boolean;
+}

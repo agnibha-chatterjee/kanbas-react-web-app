@@ -58,10 +58,10 @@ function Assignments() {
                     </Link>
                     <span className="fw-normal fs-16"> | </span>
                     <span className="fw-normal fs-12">
-                      {!!assignment.notAvailableBefore && (
+                      {!!assignment.availableFromDate && (
                         <span>
                           <span className="fw-bold">Not available until</span>{' '}
-                          {assignment.notAvailableBefore}
+                          {assignment.availableFromDate}
                           <span className="fw-normal fs-16"> | </span>
                         </span>
                       )}
