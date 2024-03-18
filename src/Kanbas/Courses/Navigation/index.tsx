@@ -1,8 +1,8 @@
 import { Link, useLocation, useParams } from 'react-router-dom';
 import './index.css';
-import { courses } from '../../Database';
+import { Course } from '../../../types';
 
-function CourseNavigation() {
+function CourseNavigation({ courses }: { courses: Course[] }) {
   const links = [
     'Home',
     'Modules',
@@ -31,7 +31,7 @@ function CourseNavigation() {
   return (
     <div className="d-none d-md-block me-4">
       <div className="my-3" style={{ fontSize: 11, marginLeft: 37.5 }}>
-        <em>{course?.cardSubText.slice(0, 27)}...</em>
+        <em>{!!course?.cardSubText && course?.cardSubText.slice(0, 27)}...</em>
       </div>
       <ul className="wd-navigation">
         {links.map(link => (

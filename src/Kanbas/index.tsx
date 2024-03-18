@@ -41,7 +41,14 @@ function Kanbas() {
     setCourses(
       courses.map(c => {
         if (c._id === course._id) {
-          return course;
+          const totalNoOfCourses = courses.length;
+          const commonText = `2042${(totalNoOfCourses + 1) * 10}`;
+          const cardText = `${course.number}_12631_${commonText}`;
+          return {
+            ...course,
+            cardText,
+            cardSubText: `${commonText}_1 Fall Semester Full Term`
+          };
         } else {
           return c;
         }

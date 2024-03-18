@@ -9,20 +9,26 @@ import Modules from './Modules';
 import Assignments from './Assignments';
 import AssignmentEditor from './Assignments/Editor';
 import Grades from './Grades';
-import { assignments } from '../Database';
 import './index.css';
 import { Course } from '../../types';
+import { useSelector } from 'react-redux';
+import { KanbasState } from '../store';
 
 function Courses({ courses }: { courses: Course[] }) {
   const { courseId } = useParams();
   const course = courses.find(course => course._id === courseId);
+
+  const assignmentList = useSelector(
+    (state: KanbasState) => state.assignmentsReducer.assignments
+  );
+
   let assignmentTitle = '';
   const href = decodeURIComponent(window.location.href);
   const splitHref = href.split('/');
 
   if (splitHref.at(-2) === 'Assignments') {
     const assignmentId = splitHref.at(-1);
-    const assignment = assignments.find(
+    const assignment = assignmentList.find(
       assignment => assignment._id === assignmentId
     );
     assignmentTitle = assignment?.name ?? 'Create new';
@@ -67,7 +73,7 @@ function Courses({ courses }: { courses: Course[] }) {
         </div>
       </div>
       <CollapsedNav />
-      <CourseNavigation />
+      <CourseNavigation courses={courses} />
       <div>
         <div className="window-container">
           <Routes>

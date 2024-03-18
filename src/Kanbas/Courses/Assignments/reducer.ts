@@ -2,7 +2,10 @@ import { createSlice } from '@reduxjs/toolkit';
 import { assignments } from '../../Database';
 import { Assignment } from '../../../types';
 
-const initialState: { assignments: Assignment[]; assignment: Assignment } = {
+export const initialState: {
+  assignments: Assignment[];
+  assignment: Assignment;
+} = {
   assignments,
   assignment: {
     _id: 'A000',

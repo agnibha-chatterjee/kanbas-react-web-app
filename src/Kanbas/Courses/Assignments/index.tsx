@@ -6,9 +6,13 @@ import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { KanbasState } from '../../store';
 import { Assignment } from '../../../types';
-import { deleteAssignment, setAssignment } from './reducer';
-import './index.css';
+import {
+  deleteAssignment,
+  setAssignment,
+  initialState as initialAssignmentState
+} from './reducer';
 import { useState } from 'react';
+import './index.css';
 
 function Assignments() {
   const { courseId } = useParams();
@@ -45,6 +49,11 @@ function Assignments() {
     setShowDialog(false);
   };
 
+  const createAssignment = () => {
+    dispatch(setAssignment(initialAssignmentState.assignment));
+    navigate(`/Kanbas/Courses/${courseId}/Assignments/new`);
+  };
+
   return (
     <>
       <div className="me-5 mt-5">
@@ -62,12 +71,9 @@ function Assignments() {
           </div>
           <div className="d-flex">
             <button className="btn btn-light m-1">+Group</button>
-            <Link
-              to={`/Kanbas/Courses/${courseId}/Assignments/new`}
-              className="btn btn-danger m-1"
-            >
+            <button onClick={createAssignment} className="btn btn-danger m-1">
               + Assignment
-            </Link>
+            </button>
             <button className="btn btn-light m-1 d-flex justify-content-center align-items-center">
               <FaEllipsisV />
             </button>
