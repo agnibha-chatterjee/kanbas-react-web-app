@@ -39,53 +39,54 @@ function ModuleList() {
         </button>
       </div>
 
-      <ul className="list-group wd-modules mt-5">
-        <li className="list-group-item">
-          <button
-            onClick={() => dispatch(addModule({ ...module, course: courseId }))}
-            className="btn btn-sm btn-success"
-          >
-            Add
-          </button>
-          <button onClick={() => dispatch(updateModule(module))}>Update</button>
-
+      <div className="my-2 p-1" style={{ width: 400 }}>
+        <h4>Add a new module</h4>
+        <div>
           <input
+            className="form-control my-1"
             value={module.name}
             onChange={e =>
               dispatch(setModule({ ...module, name: e.target.value }))
             }
           />
+        </div>
+        <div>
           <textarea
+            className="form-control my-1"
             value={module.description}
             onChange={e =>
               dispatch(setModule({ ...module, description: e.target.value }))
             }
           />
-        </li>
+        </div>
 
+        <div>
+          <button
+            onClick={() => dispatch(addModule({ ...module, course: courseId }))}
+            className="btn btn-sm btn-success me-1"
+          >
+            Add
+          </button>
+          <button
+            onClick={() => dispatch(updateModule(module))}
+            className="btn btn-sm btn-secondary ms-1"
+          >
+            Update
+          </button>
+        </div>
+      </div>
+
+      <ul className="list-group wd-modules mt-5">
         {moduleList
           .filter(module => module.course === courseId)
           .map(module => (
-            <li
-              className="list-group-item cursor-pointer"
-              // onClick={() => setSelectedModule(module)}
-              key={module._id}
-            >
-              <button onClick={() => dispatch(setModule(module))}>Edit</button>
-              <button
-                className="btn btn-danger btn-sm"
-                onClick={() => {
-                  dispatch(deleteModule(module._id));
-                }}
-              >
-                Delete
-              </button>
+            <li className="list-group-item cursor-pointer" key={module._id}>
               <div className="module-header py-3 bg-light">
                 <span className="me-2 ms-1 cursor-pointer">
                   <FaEllipsisV className="mb-1" fontSize="1.1em" />
                 </span>
                 <div
-                  className="d-inline-flex align-items-center justify-content-center cursor-pointer"
+                  className="d-inline-flex align-items-center cursor-pointer"
                   onClick={() => setSelectedModule(module)}
                 >
                   {selectedModule._id === module._id ? (
@@ -93,9 +94,28 @@ function ModuleList() {
                   ) : (
                     <HiChevronRight className="fs-18" />
                   )}
-                  <span className="fw-bold cursor-pointer">{module.name}</span>
+                  <span
+                    className="fw-bold cursor-pointer"
+                    style={{ marginRight: 'auto' }}
+                  >
+                    {module.name}
+                  </span>
                 </div>
-                <span className="float-end pe-2">
+                <span className="float-end pe-2 d-flex align-items-center">
+                  <button
+                    onClick={() => dispatch(setModule(module))}
+                    className="btn btn-primary btn-sm rounded-2 p-1 me-1"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    className="btn btn-danger btn-sm rounded-2 p-1 me-2"
+                    onClick={() => {
+                      dispatch(deleteModule(module._id));
+                    }}
+                  >
+                    Delete
+                  </button>
                   <button className="dropdown-toggle me-3 bg-transparent d-inline-flex align-items-center justify-content-center">
                     <FaCheckCircle fontSize="1em" className="text-success" />
                   </button>

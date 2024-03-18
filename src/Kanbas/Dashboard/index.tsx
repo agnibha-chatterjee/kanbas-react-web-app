@@ -21,34 +21,45 @@ function Dashboard({
   return (
     <div className="p-4">
       <h1>Dashboard</h1> <hr />
-      <input
-        value={course.name}
-        className="form-control"
-        onChange={e => setCourse({ ...course, name: e.target.value })}
-      />
-      <input
-        value={course.number}
-        className="form-control"
-        onChange={e => setCourse({ ...course, number: e.target.value })}
-      />
-      <input
-        value={course.startDate}
-        className="form-control"
-        type="date"
-        onChange={e => setCourse({ ...course, startDate: e.target.value })}
-      />
-      <input
-        value={course.endDate}
-        className="form-control"
-        type="date"
-        onChange={e => setCourse({ ...course, endDate: e.target.value })}
-      />
-      <button className="btn btn-primary" onClick={addNewCourse}>
-        Add
-      </button>
-      <button className="btn btn-primary" onClick={updateCourse}>
-        Update
-      </button>
+      <div style={{ width: 400 }} className="my-3">
+        <h4>Add New Course</h4>
+        <input
+          value={course.name}
+          className="form-control my-1"
+          onChange={e => setCourse({ ...course, name: e.target.value })}
+        />
+        <input
+          value={course.number}
+          className="form-control my-1"
+          onChange={e => setCourse({ ...course, number: e.target.value })}
+        />
+        <input
+          value={course.startDate}
+          className="form-control my-1"
+          type="date"
+          onChange={e => setCourse({ ...course, startDate: e.target.value })}
+        />
+        <input
+          value={course.endDate}
+          className="form-control my-1"
+          type="date"
+          onChange={e => setCourse({ ...course, endDate: e.target.value })}
+        />
+        <div className="mt-2">
+          <button
+            className="btn btn-primary btn-sm me-1"
+            onClick={addNewCourse}
+          >
+            Add
+          </button>
+          <button
+            className="btn btn-primary btn-sm ms-1"
+            onClick={updateCourse}
+          >
+            Update
+          </button>
+        </div>
+      </div>
       <h2>Published Courses ({courses.length})</h2> <hr />
       <div className="row">
         <div className="row row-cols-1 row-cols-md-5 g-4">
@@ -79,9 +90,9 @@ function Dashboard({
                         <span className="fs-12">{course.cardSubText}</span>
                       </p>
                     </Link>
-                    <div>
+                    <div className="my-1">
                       <button
-                        className="btn btn-sm btn-danger"
+                        className="btn btn-sm btn-danger me-1"
                         onClick={() => {
                           deleteCourse(course._id);
                         }}
