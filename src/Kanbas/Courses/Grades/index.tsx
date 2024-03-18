@@ -90,7 +90,7 @@ function Grades() {
                   className="fw-normal text-center"
                   style={{ fontSize: 14 }}
                 >
-                  {assignment.title} <br />
+                  {assignment.name} <br />
                   <span className="fs-12">Out of 100</span>
                 </th>
               ))}

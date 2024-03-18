@@ -1,7 +1,8 @@
 [
   {
     "_id": "A201",
-    "title": "HTML and CSS Basics",
+    "name": "HTML and CSS Basics",
+    "description": "Create a simple web page using HTML and CSS.",
     "course": "RS101",
     "dueDate": "Oct 1 at 11:59 pm",
     "totalPoints": 100,
@@ -11,7 +12,8 @@
   },
   {
     "_id": "A202",
-    "title": "Responsive Web Design",
+    "name": "Responsive Web Design",
+    "description": "Create a responsive web page using HTML, CSS, and JavaScript.",
     "course": "RS101",
     "dueDate": "Oct 15 at 11:59 pm",
     "totalPoints": 100,
@@ -21,7 +23,8 @@
   },
   {
     "_id": "A203",
-    "title": "JavaScript Fundamentals",
+    "name": "JavaScript Fundamentals",
+    "description": "Create a simple web page using HTML, CSS, and JavaScript.",
     "course": "RS101",
     "dueDate": "Oct 30 at 11:59 pm",
     "totalPoints": 100,
@@ -31,7 +34,8 @@
   },
   {
     "_id": "A204",
-    "title": "Final Project: Complete Website",
+    "name": "Final Project: Complete Website",
+    "description": "Create a complete website using HTML, CSS, and JavaScript.",
     "course": "RS101",
     "dueDate": "Dec 12 at 11:59 pm",
     "totalPoints": 200,
@@ -41,7 +45,8 @@
   },
   {
     "_id": "A301",
-    "title": "Sorting Algorithm Analysis",
+    "name": "Sorting Algorithm Analysis",
+    "description": "Implement and analyze sorting algorithms.",
     "course": "RS102",
     "dueDate": "Oct 1 at 11:59 pm",
     "totalPoints": 100,
@@ -51,7 +56,8 @@
   },
   {
     "_id": "A302",
-    "title": "Graph Algorithms Implementation",
+    "name": "Graph Algorithms Implementation",
+    "description": "Implement graph algorithms.",
     "course": "RS102",
     "dueDate": "Oct 15 at 11:59 pm",
     "totalPoints": 100,
@@ -61,7 +67,8 @@
   },
   {
     "_id": "A303",
-    "title": "Dynamic Programming Problems",
+    "name": "Dynamic Programming Problems",
+    "description": "Solve dynamic programming problems.",
     "course": "RS102",
     "dueDate": "Oct 30 at 11:59 pm",
     "totalPoints": 100,
@@ -71,7 +78,8 @@
   },
   {
     "_id": "A304",
-    "title": "Final Exam: Algorithm Design",
+    "name": "Final Exam: Algorithm Design",
+    "description": "Complete the final exam for the course.",
     "course": "RS102",
     "dueDate": "Dec 12 at 11:59 pm",
     "totalPoints": 200,
@@ -81,7 +89,8 @@
   },
   {
     "_id": "A401",
-    "title": "SQL Query Practice",
+    "name": "SQL Query Practice",
+    "description": "Practice writing SQL queries.",
     "course": "RS103",
     "dueDate": "Oct 1 at 11:59 pm",
     "totalPoints": 100,
@@ -91,7 +100,8 @@
   },
   {
     "_id": "A402",
-    "title": "Database Design Project",
+    "name": "Database Design Project",
+    "description": "Design a database for a specific application.",
     "course": "RS103",
     "dueDate": "Oct 15 at 11:59 pm",
     "totalPoints": 100,
@@ -101,7 +111,8 @@
   },
   {
     "_id": "A403",
-    "title": "NoSQL Database Implementation",
+    "name": "NoSQL Database Implementation",
+    "description": "Implement a NoSQL database for a specific application.",
     "course": "RS103",
     "dueDate": "Oct 30 at 11:59 pm",
     "totalPoints": 100,
@@ -111,7 +122,8 @@
   },
   {
     "_id": "A404",
-    "title": "Final Exam: Database Systems",
+    "name": "Final Exam: Database Systems",
+    "description": "Complete the final exam for the course.",
     "course": "RS103",
     "dueDate": "Dec 12 at 11:59 pm",
     "totalPoints": 200,
@@ -121,7 +133,8 @@
   },
   {
     "_id": "A501",
-    "title": "Functional Programming Exercises",
+    "name": "Functional Programming Exercises",
+    "description": "Complete functional programming exercises.",
     "course": "RS104",
     "dueDate": "Oct 1 at 11:59 pm",
     "totalPoints": 100,
@@ -131,7 +144,8 @@
   },
   {
     "_id": "A502",
-    "title": "Object-Oriented Design Patterns",
+    "name": "Object-Oriented Design Patterns",
+    "description": "Implement object-oriented design patterns.",
     "course": "RS104",
     "dueDate": "Oct 15 at 11:59 pm",
     "totalPoints": 100,
@@ -141,7 +155,8 @@
   },
   {
     "_id": "A503",
-    "title": "Logic Programming with Prolog",
+    "name": "Logic Programming with Prolog",
+    "description": "Complete logic programming exercises.",
     "course": "RS104",
     "dueDate": "Oct 30 at 11:59 pm",
     "totalPoints": 100,
@@ -151,7 +166,8 @@
   },
   {
     "_id": "A504",
-    "title": "Final Project: Concurrent Programming",
+    "name": "Final Project: Concurrent Programming",
+    "description": "Complete a concurrent programming project.",
     "course": "RS104",
     "dueDate": "Dec 12 at 11:59 pm",
     "totalPoints": 200,

@@ -25,7 +25,7 @@ function Courses({ courses }: { courses: Course[] }) {
     const assignment = assignments.find(
       assignment => assignment._id === assignmentId
     );
-    assignmentTitle = assignment?.title ?? '';
+    assignmentTitle = assignment?.name ?? 'Create new';
   }
 
   const breadcrumbText =

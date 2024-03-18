@@ -1,18 +1,34 @@
 import { useNavigate, useParams } from 'react-router';
 import { FaCheckCircle, FaEllipsisV } from 'react-icons/fa';
-import { assignments } from '../../../Database';
 import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { setAssignment, addAssignment, updateAssignment } from '../reducer';
+import { KanbasState } from '../../../store';
 
 function AssignmentEditor() {
-  const { assignmentId, courseId } = useParams();
+  const { courseId } = useParams();
+  const dispatch = useDispatch();
 
-  const assignment = assignments.find(
-    assignment => assignment._id === assignmentId
+  const assignmentList = useSelector(
+    (state: KanbasState) => state.assignmentsReducer.assignments
   );
 
+  const assignment = useSelector(
+    (state: KanbasState) => state.assignmentsReducer.assignment
+  );
+
+  const isEditing =
+    assignmentList.findIndex(a => a._id === assignment._id) !== -1;
+
   const navigate = useNavigate();
+
   const handleSave = () => {
-    console.log('Actually saving assignment TBD in later assignments');
+    if (isEditing) {
+      dispatch(updateAssignment(assignment));
+    } else {
+      dispatch(addAssignment({ ...assignment, course: courseId }));
+    }
+
     navigate(`/Kanbas/Courses/${courseId}/Assignments`);
   };
 
@@ -34,10 +50,14 @@ function AssignmentEditor() {
             Assignment Name
           </label>
           <input
-            type="email"
+            type="text"
             className="form-control"
             id="assignment-name"
-            placeholder={assignment?.title}
+            placeholder={assignment?.name}
+            value={assignment?.name}
+            onChange={e =>
+              dispatch(setAssignment({ ...assignment, name: e.target.value }))
+            }
           />
         </div>
         <div className="mb-3">
@@ -45,11 +65,15 @@ function AssignmentEditor() {
             className="form-control"
             id="exampleFormControlTextarea1"
             rows={4}
-            placeholder="Assignment Description"
-            defaultValue="Assignment description goes here"
+            placeholder="Assignment description goes here"
+            value={assignment?.description}
+            onChange={e =>
+              dispatch(
+                setAssignment({ ...assignment, description: e.target.value })
+              )
+            }
           />
         </div>
-        {/* Actual Form */}
         <div className="container-fluid">
           <div className="row my-3">
             <div className="col-2">
@@ -65,6 +89,12 @@ function AssignmentEditor() {
                 className="form-control"
                 id="assignment-points"
                 placeholder="100"
+                value={assignment?.totalPoints}
+                onChange={e =>
+                  dispatch(
+                    setAssignment({ ...assignment, points: e.target.value })
+                  )
+                }
               />
             </div>
           </div>
@@ -147,7 +177,15 @@ function AssignmentEditor() {
                     type="datetime-local"
                     className="form-control"
                     id="assignment-due"
-                    defaultValue="2021-06-12T19:30"
+                    value={assignment?.dueDate}
+                    onChange={e =>
+                      dispatch(
+                        setAssignment({
+                          ...assignment,
+                          dueDate: e.target.value
+                        })
+                      )
+                    }
                   />
                 </div>
                 <div className="row g-1 mb-3">
@@ -162,7 +200,15 @@ function AssignmentEditor() {
                       type="datetime-local"
                       className="form-control"
                       id="assignment-available"
-                      defaultValue="2020-06-12T19:30"
+                      value={assignment?.availableFromDate ?? ''}
+                      onChange={e =>
+                        dispatch(
+                          setAssignment({
+                            ...assignment,
+                            availableFromDate: e.target.value
+                          })
+                        )
+                      }
                     />
                   </div>
                   <div className="col-6">
@@ -176,7 +222,15 @@ function AssignmentEditor() {
                       type="datetime-local"
                       className="form-control"
                       id="assignment-until"
-                      defaultValue="2022-07-12T19:30"
+                      value={assignment?.availableUntilDate ?? ''}
+                      onChange={e =>
+                        dispatch(
+                          setAssignment({
+                            ...assignment,
+                            availableUntilDate: e.target.value
+                          })
+                        )
+                      }
                     />
                   </div>
                 </div>

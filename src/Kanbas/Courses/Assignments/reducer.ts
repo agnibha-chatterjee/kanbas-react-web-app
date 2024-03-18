@@ -6,10 +6,12 @@ const initialState: { assignments: Assignment[]; assignment: Assignment } = {
   assignments,
   assignment: {
     _id: 'A000',
-    title: 'New Assignment',
+    name: 'New Assignment',
+    description: 'New Assignment Description',
     dueDate: '20-12-2022',
     totalPoints: 100,
     availableFromDate: null,
+    availableUntilDate: null,
     published: false
   }
 };
@@ -20,12 +22,13 @@ const assignmentSlice = createSlice({
   reducers: {
     addAssignment: (state, action) => {
       state.assignments = [
+        ...state.assignments,
         {
           ...action.payload,
           _id: new Date().getTime().toString()
-        },
-        ...state.assignments
+        }
       ];
+      console.log(state.assignments);
     },
     deleteAssignment: (state, action) => {
       state.assignments = state.assignments.filter(
@@ -42,7 +45,6 @@ const assignmentSlice = createSlice({
       });
     },
     setAssignment: (state, action) => {
-      console.log(state);
       state.assignment = action.payload;
     }
   }

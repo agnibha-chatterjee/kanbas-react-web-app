@@ -26,10 +26,12 @@ export interface Lesson {
 
 export interface Assignment {
   _id: string;
-  title: string;
+  name: string;
+  description: string;
   course?: string;
   dueDate: string;
   totalPoints: number;
   availableFromDate: string | null;
+  availableUntilDate: string | null;
   published: boolean;
 }
