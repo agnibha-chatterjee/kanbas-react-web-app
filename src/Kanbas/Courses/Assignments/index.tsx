@@ -191,14 +191,6 @@ function Assignments() {
             <div className="modal-content">
               <div className="modal-header">
                 <h5 className="modal-title">Dialog Title</h5>
-                <button
-                  type="button"
-                  className="close"
-                  onClick={handleCloseDialog}
-                  aria-label="Close"
-                >
-                  <span aria-hidden="true">&times;</span>
-                </button>
               </div>
               <div className="modal-body">
                 <p>Are you sure you want to delete this assignmen</p>
